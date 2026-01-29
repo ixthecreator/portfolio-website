@@ -1,0 +1,9 @@
+# 排除其他大文件
+*.log
+.DS_Store
+node_modules/
+
+
+
+
+
