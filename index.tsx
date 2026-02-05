@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route, Link, useParams, useLocation } from 'react-router-dom';
-import { LayoutGrid, AlignLeft, Search, ArrowLeft, ArrowRight, X, Maximize2, Minimize2, Share2, Copy, Check, Moon, Sun, Filter, Instagram, Twitter } from 'lucide-react';
+import { LayoutGrid, AlignLeft, Search, ArrowLeft, ArrowRight, X, Maximize2, Minimize2, Share2, Copy, Check, Filter, Instagram, Twitter } from 'lucide-react';
 
 // --- TYPE DEFINITIONS ---
 interface Work {
@@ -101,7 +101,7 @@ const WORKS: Work[] = [
     dimensions: '180 × 26 × 6 cm',
     synopsis: '作为"精选作品"系列中的代表作之一，《TRUISMS PROVE THERE ARE NO TRUISMS》以实时运算的 LED 装置重新诠释了 Jenny Holzer 的文字艺术传统，尤其是其奠基性的《Truisms》（1978–1987）。作品提出一条新的元箴言："Truisms 证明世上并无 Truisms。"文本在 LED 上被重复 253 次，精确对应 Holzer 原作的箴言数量。第一轮滚动以 19.78 秒呈现，象征 1978 年的起点；其后每一次以 1.253 倍速度加快，使后半段文本逐渐崩解为难以辨认的闪烁。意义在重复中瓦解的过程在此被视觉化，形成对"真理"概念的反思。不同于传统预渲染视频，作品由自主编写的程序实时驱动，计算滚动速度、位移与循环结构，使 LED 不仅是显示媒介，更是一个持续运算、生成自身节奏与视觉逻辑的系统。不锈钢外壳呼应了 Holzer 冷峻、工业性的美学，同时强化作品的物理存在。这件作品既是致敬，也是批评——在延续 Holzer 影响的同时，也探讨了在当代信息循环中"真理"的不稳定性。',
     synopsisEn: 'TRUISMS PROVE THERE ARE NO TRUISMS is a selected work that reinterprets Jenny Holzer\'s foundational text-based practice through a real-time generative LED installation. Drawing from Holzer\'s influence—particularly her Truisms series (1978–1987)—the piece constructs a new meta-truism: "Truisms prove that there are no Truisms." The sentence repeats 253 times, directly corresponding to the number of statements in Holzer\'s original list. The first cycle scrolls across the matrix in 19.78 seconds, referencing 1978, while each subsequent repetition accelerates by a factor of 1.253, causing the final iterations to break down into nearly unreadable flashes. This transformation from clarity to collapse visualizes how ideology, when endlessly circulated, dissolves into noise and loses meaning. Unlike pre-rendered LED videos, the work operates through a custom-written control program that calculates speed progression, positional updates, and loop behavior in real time. The LED matrix becomes an active system rather than a passive screen—continuously generating its own temporal rhythms and visual logic. Housed in a stainless-steel enclosure, the piece echoes Holzer\'s industrial aesthetic while asserting its own computational agency. This work stands as both homage and critique: honoring Holzer\'s legacy while exploring the instability of truth in a world saturated with repetition.',
-    imageUrl: '/images/truisms-prove/truisms-prove-1.jpg',
+    imageUrl: '/images/truisms-prove/truisms-prove-1-compressed.jpg',
     category: 'selected-works'
   },
   {
@@ -116,7 +116,7 @@ const WORKS: Work[] = [
     dimensions: '180 × 26 × 6 cm',
     synopsis: '作品灵感来自 Jenny Holzer 的巨型文字灯箱装置。本作以手工焊接的不锈钢结构与自主编写的 LED 控制系统，将文字转化为一种无法被忽视的实体存在。屏幕循环播放的句子——「我真的成為怪物了嗎？」——指向艺术家长期以来对"变化"与"疏离"的焦虑。这里的"怪物"象征被社会边缘化的人，以及一种更深层的恐惧：是否正在慢慢变成自己曾经最讨厌的那种"成人"。LED 媒介本身具有强制观看的特性，明亮、直白、无可逃避。文字瞬间在观者脑中浮现，也提醒着语言如何潜移默化地塑造我们。作品采用复古点阵风格，令人联想到早期 RPG 游戏，使情绪张力以童话式、任务式的方式呈现——主角仿佛是拼命抵抗变形的孩子。使用繁体中文呈现文本，则保留了语言的暧昧性，也强化了作品的开放解读空间。',
     synopsisEn: 'Inspired by Jenny Holzer\'s monumental text installations, this work transforms language into an unavoidable physical presence through a hand-welded stainless-steel enclosure and a custom-coded LED matrix system. The displayed sentence—"我真的成為怪物了嗎？" (Have I truly become a monster?)—captures the artist\'s long-standing anxiety about social alienation and the subtle ways society reshapes individuals. Here, "monster" symbolizes an outsider who can no longer integrate, as well as the fear of becoming the kind of adult one once rejected. The LED matrix medium reinforces this tension: bright, confrontational, and impossible to ignore. Text appears in the viewer\'s mind involuntarily—a reminder that language infiltrates us subconsciously. Using a retro dot-matrix aesthetic reminiscent of early RPGs, the work frames this psychological struggle like a mythic quest. The protagonist resembles a child-hero resisting unwanted transformation. The choice to display the text in Traditional Chinese preserves nuance and embraces the ambiguity that meaningfully shapes the viewer\'s interpretation.',
-    imageUrl: '/images/have-i-truly-become-monster/have-i-truly-become-monster-1.jpg',
+    imageUrl: '/images/have-i-truly-become-monster/have-i-truly-become-monster-1-compressed.jpg',
     category: 'selected-works'
   },
   {
@@ -148,7 +148,7 @@ const WORKS: Work[] = [
     dimensions: 'Variable dimensions',
     synopsis: '《media{loop》作为 3l / atlas 事件 系列中的 "视差证物 01 号"，将观众的身体采集为数据，再以两份略微错位的影像回路形式返还。通过距离感应与实时姿态追踪，观众的靠近、停顿与细微动作会触发画面偏移与时间差。两块屏幕像是来自不同专家系统的技术报告：处理的是同一个身体，却给出相互矛盾的"证据"。作品呼应 3l / atlas 事件中无法统一的多重证词，揭示了技术见证并非呈现真相，而是在制造多个相互不兼容的"在场版本"。',
     synopsisEn: 'media{loop} serves as Parallax Evidence No. 01 within the 3l / atlas Incident series. The installation captures the viewer\'s body as data and returns it as two subtly diverging visual outputs. Through distance sensing and real-time pose tracking, proximity and micro-movements generate shifting patterns and temporal offsets. Each screen behaves like a different expert system—processing the same body, yet producing contradictory "proof." The work echoes the unstable testimonies surrounding the 3l / atlas event, revealing how technical witnesses—algorithms, sensors, and imaging devices—do not present truth but manufacture multiple incompatible versions of presence.',
-    imageUrl: '/images/media{loop}/media-loop-1.png',
+    imageUrl: '/images/media{loop}/media-loop-1-compressed.jpg',
     category: 'selected-works'
   },
   // 3. Multimedium Installation
@@ -164,7 +164,7 @@ const WORKS: Work[] = [
     dimensions: '16 × 18.5 in',
     synopsis: '《Void → Radiance》呈现了艺术家在疫情期间的心理跃迁——从虚无、麻木与停滞中挣脱，迈向清醒与存在主义式的觉醒。左侧面具以扩散的蓝绿水彩描绘，并被透明亚克力覆盖，象征隔离时期的疏离、迷惘，以及 Sylvia Plath《Ariel》中"无实体的蓝色"所指向的超现实精神状态。那层透明却无法移除的材料如同自我与外界之间的屏障。右侧面具以反光铝箔包覆，象征突破、重生与精神上的升华。额头的竖眼取自神话人物二郎神，寓意能洞穿黑暗的启示性视野。双面具的叠合记录了一个转瞬的临界点——自我从虚空中浮现，走向光亮。',
     synopsisEn: 'Void → Radiance visualizes the artist\'s psychological transition during the pandemic—from emotional numbness and nihilistic stagnation to a renewed sense of clarity and existential awakening. The left mask, painted in diffused blues and greens beneath an acrylic sheet, embodies isolation, disorientation, and the "substanceless blue" evoked in Sylvia Plath\'s Ariel. The acrylic layer becomes a fragile yet immovable barrier mirroring the distance between self and world. The right mask, covered in reflective aluminum foil, symbolizes transcendence, rebirth, and the emergence of a sharpened inner vision. The vertically placed eye—referencing the mythological third eye of Yang Jian—signals enlightenment piercing through former darkness. Together, the overlapping masks illustrate a self rising from void into radiance.',
-    imageUrl: '/images/void-radiance/void-radiance-1.jpg',
+    imageUrl: '/images/void-radiance/void-radiance-1-compressed.jpg',
     category: 'selected-works'
   },
   {
@@ -179,7 +179,7 @@ const WORKS: Work[] = [
     dimensions: '16 × 23 in',
     synopsis: '《Human | Flawed Machine》以"人如机器"的隐喻重新诠释自画像。金属圆环标记面部穴位，红黑绝缘线在其间构成脆弱的"电路"。暴露的铜线、松散的节点与以白色胶带修补的痕迹皆为刻意保留，象征人类与生俱来的缺陷与无法彻底修复的脆弱。拼贴的双眼与嘴唇穿插于机械结构之间，呈现被困于系统中的意识，努力观看、发声，却仍受限于结构本身。镜面让观者同时成为作品的一部分，使"身份"成为被折射与不断重构的议题。作品结合中医穴位的象征语言与 Tony Oursler 式的诡异视觉风格，将身份描绘为在机械逻辑与人类脆弱之间持续纠缠的存在。',
     synopsisEn: 'Human | Flawed Machine reinterprets the self-portrait through the metaphor of the human body as a malfunctioning machine. Metal rings mark acupuncture points across the face, while red-and-black insulated wires form a network of fragile "circuits." The intentionally unpolished joints—exposed copper, loose ends, and temporary white repair tape—reveal the inherent flaws embedded within human existence. Collaged eyes and lips interrupt the mechanical network, introducing a trapped awareness struggling to see and speak through a rigid structure. The mirror surface reflects the viewer back into the piece, reinforcing the work\'s investigation of identity, self-repair, and the impossibility of achieving perfection. Blending references from traditional Chinese medicine with the eerie figural language of Tony Oursler, the work positions identity as a perpetual negotiation between systemized structure and human vulnerability.',
-    imageUrl: '/images/human-flawed-machine/human-flawed-machine-main.png',
+    imageUrl: '/images/human-flawed-machine/human-flawed-machine-main-compressed.jpg',
     category: 'selected-works'
   },
   // B. Digital Works（数位作品）
@@ -562,72 +562,72 @@ const About = ({ language }: { language: Language }) => {
   const content = aboutContent[language];
 
   return (
-    <article className="min-h-screen bg-white dark:bg-gray-900 animate-in fade-in duration-500">
-      <div className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-12 max-w-4xl mx-auto">
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-black mb-8 md:mb-12 text-black dark:text-white leading-tight tracking-tight">
+    <article className="about-page">
+      <div className="about-content">
+        <h1 className="about-title">
           {content.title}
         </h1>
 
-        <section className="mb-8 md:mb-12">
-          <p className="text-base md:text-lg text-black dark:text-gray-300 leading-relaxed mb-6">
+        <section className="about-section">
+          <p className="about-bio">
             {content.bio}
           </p>
         </section>
 
-        <section className="mb-8 md:mb-12">
-          <h2 className="text-xl md:text-2xl font-bold mb-4 text-black dark:text-white uppercase tracking-tight">
+        <section className="about-section">
+          <h2 className="about-section-title">
             {content.practice}
           </h2>
-          <p className="text-sm md:text-base text-black dark:text-gray-300 leading-relaxed">
+          <p className="about-text">
             {content.practiceText}
           </p>
         </section>
 
-        <section className="mb-8 md:mb-12">
-          <h2 className="text-xl md:text-2xl font-bold mb-4 text-black dark:text-white uppercase tracking-tight">
+        <section className="about-section">
+          <h2 className="about-section-title">
             {content.exhibitions}
           </h2>
-          <p className="text-sm md:text-base text-black dark:text-gray-300 leading-relaxed">
+          <p className="about-text">
             {content.exhibitionsText}
           </p>
         </section>
 
-        <section className="mb-8 md:mb-12">
-          <h2 className="text-xl md:text-2xl font-bold mb-4 text-black dark:text-white uppercase tracking-tight">
+        <section className="about-section">
+          <h2 className="about-section-title">
             {content.contact}
           </h2>
-          <p className="text-sm md:text-base text-black dark:text-gray-300 leading-relaxed mb-4">
+          <p className="about-text" style={{ marginBottom: '1rem' }}>
             {content.contactText}
           </p>
-          <div className="text-sm md:text-base text-black dark:text-gray-300">
-            <p className="mb-2">
-              <span className="font-medium">{content.email}:</span> <a href="mailto:contact@example.com" className="hover:underline">contact@example.com</a>
+          <div className="about-contact-info">
+            <p className="about-contact-item">
+              <span className="about-contact-label">{content.email}:</span> <a href="mailto:contact@example.com" className="about-contact-link">contact@example.com</a>
             </p>
-            <p className="mb-4">
-              <span className="font-medium">{content.website}:</span> <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="hover:underline">example.com</a>
+            <p className="about-contact-item">
+              <span className="about-contact-label">{content.website}:</span> <a href="https://example.com" target="_blank" rel="noopener noreferrer" className="about-contact-link">example.com</a>
             </p>
 
             {/* Social Media Links */}
-            <div className="flex items-center gap-4 mt-4">
+            <div className="about-social-links">
               <a
                 href="https://instagram.com/example"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black dark:text-gray-300 hover:opacity-70 transition-opacity"
+                className="about-social-link"
                 aria-label="Instagram"
               >
                 <Instagram size={20} />
-                <span className="text-sm">Instagram</span>
+                <span>Instagram</span>
               </a>
               <a
                 href="https://twitter.com/example"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-black dark:text-gray-300 hover:opacity-70 transition-opacity"
+                className="about-social-link"
                 aria-label="Twitter"
               >
                 <Twitter size={20} />
-                <span className="text-sm">Twitter</span>
+                <span>Twitter</span>
               </a>
             </div>
           </div>
@@ -648,9 +648,7 @@ const Header = ({
   selectedSeries,
   setSelectedSeries,
   selectedYear,
-  setSelectedYear,
-  isDarkMode,
-  setIsDarkMode
+  setSelectedYear
 }: any) => {
   const location = useLocation();
   const isWorkDetail = location.pathname.startsWith('/work/');
@@ -680,45 +678,32 @@ const Header = ({
 
   return (
     <>
-      <header className={`sticky top-0 z-50 w-full backdrop-blur-sm px-4 py-4 flex items-center justify-between border-b transition-colors ${isDarkMode
-        ? 'bg-gray-900/95 border-gray-700 hover:border-gray-600'
-        : 'bg-white/95 border-transparent hover:border-gray-100'
-        }`}>
-        <div className="flex items-center gap-6">
-          <Link to="/" className={`text-2xl font-black tracking-tighter uppercase hover:opacity-70 transition-opacity ${isDarkMode ? 'text-white' : 'text-black'
-            }`}>
+      <header className="header">
+        <div className="header-left">
+          <Link to="/" className="header-logo">
             IX
           </Link>
 
           {!isWorkDetail && !isAbout && (
-            <nav className="flex items-center gap-4 text-sm font-medium">
+            <nav className="header-nav">
               <Link
                 to="/selected-works"
-                className={`uppercase tracking-wider hover:opacity-70 transition-opacity ${category === 'selected-works'
-                  ? (isDarkMode ? 'text-white' : 'text-black')
-                  : (isDarkMode ? 'text-gray-400' : 'text-gray-400')
-                  }`}
+                className={`header-nav-link ${category === 'selected-works' ? 'active' : ''}`}
               >
                 {t.selectedWorks}
               </Link>
-              <span className={isDarkMode ? 'text-gray-600' : 'text-gray-300'}>/</span>
+              <span className="header-nav-divider">/</span>
               <Link
                 to="/experiments"
-                className={`uppercase tracking-wider hover:opacity-70 transition-opacity ${category === 'experiments'
-                  ? (isDarkMode ? 'text-white' : 'text-black')
-                  : (isDarkMode ? 'text-gray-400' : 'text-gray-400')
-                  }`}
+                className={`header-nav-link ${category === 'experiments' ? 'active' : ''}`}
               >
                 {t.experiments}
               </Link>
-              <span className={isDarkMode ? 'text-gray-600' : 'text-gray-300'}>/</span>
+              <span className="header-nav-divider">/</span>
 
               <Link
                 to="/about"
-                className={`uppercase tracking-wider hover:opacity-70 transition-opacity ${location.pathname === '/about'
-                  ? (isDarkMode ? 'text-white' : 'text-black')
-                  : (isDarkMode ? 'text-gray-400' : 'text-gray-400')
-                  }`}
+                className={`header-nav-link ${location.pathname === '/about' ? 'active' : ''}`}
               >
                 {language === 'en' ? 'About' : '关于'}
               </Link>
@@ -726,24 +711,11 @@ const Header = ({
           )}
         </div>
 
-        <div className="flex items-center gap-4">
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={() => setIsDarkMode(!isDarkMode)}
-            className={`p-2 transition-colors ${isDarkMode ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-600 hover:text-black'
-              }`}
-            title={isDarkMode ? t.lightMode : t.darkMode}
-          >
-            {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
-
+        <div className="header-right">
           {/* Language Toggle */}
           <button
             onClick={() => setLanguage(language === 'zh' ? 'en' : 'zh')}
-            className={`text-xs font-bold uppercase tracking-widest px-3 py-1 border transition-colors ${isDarkMode
-              ? 'border-gray-600 hover:bg-gray-700 hover:text-white text-gray-300'
-              : 'border-black hover:bg-black hover:text-white'
-              }`}
+            className="lang-toggle"
           >
             {language === 'zh' ? 'EN' : '中'}
           </button>
@@ -753,10 +725,7 @@ const Header = ({
               {/* Filter Toggle */}
               <button
                 onClick={() => setShowFilters(!showFilters)}
-                className={`p-2 transition-colors ${(selectedSeries || selectedYear)
-                  ? (isDarkMode ? 'text-white' : 'text-black')
-                  : (isDarkMode ? 'text-gray-400 hover:text-gray-300' : 'text-gray-400 hover:text-black')
-                  }`}
+                className={`icon-btn ${(selectedSeries || selectedYear) ? 'active' : ''}`}
                 title={t.filter}
               >
                 <Filter size={20} />
@@ -766,41 +735,31 @@ const Header = ({
               {viewMode === 'text' && (
                 <button
                   onClick={() => setSortMode(sortMode === 'series' ? 'year' : 'series')}
-                  className={`hidden md:block text-[10px] font-bold uppercase tracking-widest px-3 py-1 border transition-colors ${isDarkMode
-                    ? 'border-gray-600 hover:bg-gray-700 hover:text-white text-gray-300'
-                    : 'border-black hover:bg-black hover:text-white'
-                    }`}
+                  className="sort-btn"
                 >
                   {t.sortBy}: {sortMode === 'series' ? t.series : t.year}
                 </button>
               )}
 
               {/* View Toggles */}
-              <div className="flex items-center gap-1">
+              <div className="view-toggle-group">
                 <button
                   onClick={() => setViewMode('text')}
-                  className={`p-2 transition-colors ${viewMode === 'text'
-                    ? (isDarkMode ? 'text-white' : 'text-black')
-                    : (isDarkMode ? 'text-gray-400 hover:text-gray-300' : 'text-gray-300 hover:text-black')
-                    }`}
+                  className={`icon-btn ${viewMode === 'text' ? 'active' : ''}`}
                   title="Text View"
                 >
                   <AlignLeft size={20} />
                 </button>
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`p-2 transition-colors ${viewMode === 'grid'
-                    ? (isDarkMode ? 'text-white' : 'text-black')
-                    : (isDarkMode ? 'text-gray-400 hover:text-gray-300' : 'text-gray-300 hover:text-black')
-                    }`}
+                  className={`icon-btn ${viewMode === 'grid' ? 'active' : ''}`}
                   title="Grid View"
                 >
                   <LayoutGrid size={20} />
                 </button>
               </div>
 
-              <Search className={`w-5 h-5 cursor-pointer hover:opacity-60 ml-2 ${isDarkMode ? 'text-gray-400' : 'text-gray-600'
-                }`} />
+              <Search className="icon-btn" style={{ marginLeft: '0.5rem', width: '20px', height: '20px', cursor: 'pointer' }} />
             </>
           )}
         </div>
@@ -808,24 +767,17 @@ const Header = ({
 
       {/* Filter Dropdown */}
       {showFilters && !isWorkDetail && !isAbout && (
-        <div className={`sticky top-[73px] z-40 w-full px-4 py-4 border-b transition-colors ${isDarkMode
-          ? 'bg-gray-900/95 border-gray-700'
-          : 'bg-white/95 border-gray-200'
-          }`}>
-          <div className="flex flex-wrap gap-4 items-center">
+        <div className="filter-dropdown">
+          <div className="filter-controls">
             {/* Series Filter */}
-            <div className="flex items-center gap-2">
-              <label className={`text-xs font-medium uppercase tracking-wider ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+            <div className="filter-group">
+              <label className="filter-label">
                 {t.series}:
               </label>
               <select
                 value={selectedSeries || ''}
                 onChange={(e) => setSelectedSeries(e.target.value || null)}
-                className={`text-sm px-3 py-1 border transition-colors ${isDarkMode
-                  ? 'bg-gray-800 border-gray-600 text-white'
-                  : 'bg-white border-gray-300 text-black'
-                  }`}
+                className="filter-select"
               >
                 <option value="">{t.allSeries}</option>
                 {availableSeries.map(series => (
@@ -835,18 +787,14 @@ const Header = ({
             </div>
 
             {/* Year Filter */}
-            <div className="flex items-center gap-2">
-              <label className={`text-xs font-medium uppercase tracking-wider ${isDarkMode ? 'text-gray-300' : 'text-gray-600'
-                }`}>
+            <div className="filter-group">
+              <label className="filter-label">
                 {t.year}:
               </label>
               <select
                 value={selectedYear || ''}
                 onChange={(e) => setSelectedYear(e.target.value || null)}
-                className={`text-sm px-3 py-1 border transition-colors ${isDarkMode
-                  ? 'bg-gray-800 border-gray-600 text-white'
-                  : 'bg-white border-gray-300 text-black'
-                  }`}
+                className="filter-select"
               >
                 <option value="">{t.allYears}</option>
                 {availableYears.map(year => (
@@ -862,10 +810,7 @@ const Header = ({
                   setSelectedSeries(null);
                   setSelectedYear(null);
                 }}
-                className={`text-xs font-medium uppercase tracking-wider px-3 py-1 border transition-colors ${isDarkMode
-                  ? 'border-gray-600 hover:bg-gray-700 text-gray-300'
-                  : 'border-gray-300 hover:bg-gray-100 text-gray-600'
-                  }`}
+                className="filter-clear-btn"
               >
                 {language === 'en' ? 'Clear' : '清除'}
               </button>
@@ -912,17 +857,16 @@ const TextCloudView = ({ sortMode, category, language, selectedSeries, selectedY
       // Sort by year descending
       const sorted = [...filteredWorks].sort((a, b) => parseInt(b.year) - parseInt(a.year));
       return (
-        // CHANGED: Removed 'text-justify' to fix large gaps on resize. Using 'text-left' with tight leading.
-        <div className="leading-[2.2] text-lg md:text-xl text-left">
+        <div className="text-cloud">
           {sorted.map((work, i) => (
             <span key={work.id}>
               <Link
                 to={`/work/${work.id}`}
-                className="font-bold text-gray-900 hover:text-red-600 hover:underline transition-colors cursor-pointer"
+                className="text-cloud-year-link"
               >
-                {getTitle(work)} <span className="text-gray-400 font-normal text-sm align-top">{work.year}</span>
+                {getTitle(work)} <span className="text-cloud-year-badge">{work.year}</span>
               </Link>
-              {i < sorted.length - 1 && <span className="text-gray-300 mx-3">/</span>}
+              {i < sorted.length - 1 && <span className="text-cloud-separator">/</span>}
             </span>
           ))}
         </div>
@@ -943,18 +887,17 @@ const TextCloudView = ({ sortMode, category, language, selectedSeries, selectedY
       ].filter(k => grouped[k] && grouped[k].length > 0);
 
       return (
-        // CHANGED: Removed 'text-justify' to fix blue box issue. Used 'text-left' for natural word spacing.
-        <div className="leading-[2.2] text-lg md:text-xl text-left">
+        <div className="text-cloud">
           {orderedSeries.map((seriesName, seriesIndex) => {
             const seriesWorks = grouped[seriesName];
             const seriesColor = SERIES_COLORS[seriesName] || '#000000';
 
             return (
-              <span key={seriesName} className="inline">
+              <span key={seriesName} style={{ display: 'inline' }}>
                 {/* Series Title - Non-clickable, Colored */}
                 <span
                   style={{ color: seriesColor }}
-                  className="font-black uppercase tracking-tight mr-1"
+                  className="text-cloud-series-title"
                 >
                   {seriesName}:
                 </span>
@@ -964,19 +907,19 @@ const TextCloudView = ({ sortMode, category, language, selectedSeries, selectedY
                   <span key={work.id}>
                     <Link
                       to={`/work/${work.id}`}
-                      className="text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white hover:underline transition-colors font-medium decoration-1 underline-offset-2"
+                      className="text-cloud-work-link"
                     >
                       {getTitle(work)}
                     </Link>
                     {/* Comma between works, or space if end of series */}
                     {workIndex < seriesWorks.length - 1 ? (
-                      <span className="text-gray-300 mr-2">,</span>
+                      <span className="text-cloud-divider">,</span>
                     ) : null}
                   </span>
                 ))}
 
                 {/* Separator between series. */}
-                <span className="mr-3 inline-block"> </span>
+                <span style={{ marginRight: '0.75rem', display: 'inline-block' }}> </span>
               </span>
             );
           })}
@@ -986,19 +929,21 @@ const TextCloudView = ({ sortMode, category, language, selectedSeries, selectedY
   }, [sortMode, category, language, selectedSeries, selectedYear]);
 
   return (
-    <div className="w-full min-h-screen bg-white p-4 md:p-8 lg:p-12 animate-in fade-in duration-500">
+    <div className="text-view-container">
       {content}
     </div>
   );
 };
 
-// Updated ImageGridView for Variable Widths / Fixed Heights
+// Updated ImageGridView - Now using CSS Grid Layout
 const ImageGridView = ({ category, language, selectedSeries, selectedYear }: {
   category: 'experiments' | 'selected-works',
   language: Language,
   selectedSeries: string | null,
   selectedYear: string | null
 }) => {
+  const [useV2, setUseV2] = useState(true); // Default to V2 (natural proportions)
+
   // Filter works by category
   let filteredWorks = WORKS.filter(work => work.category === category);
 
@@ -1019,55 +964,101 @@ const ImageGridView = ({ category, language, selectedSeries, selectedYear }: {
   const getTitle = (work: Work) => language === 'en' && work.titleEn ? work.titleEn : work.title;
 
   return (
-    <div className="w-full min-h-screen bg-white p-4">
-      {/* 
-        Flex Layout Logic:
-        - flex-wrap: allows items to wrap to next line
-        - gap-4: unified spacing between all items
-        - h-64 (or variable based on breakpoint): sets the fixed height row
-        - img w-auto: allows image to calculate width based on height + aspect ratio
-        - grow: makes images expand to fill row if there's leftover space (masonry effect)
-      */}
-      <div className="flex flex-wrap gap-4">
-        {filteredWorks.map((work) => (
-          <Link
-            to={`/work/${work.id}`}
-            key={work.id}
-            className="group relative h-48 md:h-64 lg:h-80 grow basis-auto bg-gray-50 overflow-hidden"
-          >
-            {/* 
-               Changed object-cover to w-auto + h-full to preserve aspect ratio.
-               If you want them to fill the space perfectly without gaps, 'grow' handles the container,
-               but we need to ensure the image covers that container. 
-               
-               For artist portfolios, usually you want the full image visible:
-               Option A: object-contain (shows full image, might leave white bars)
-               Option B: object-cover (fills square, might crop)
-               Option C (Selected): Flexbox auto-width (No crop, variable width)
-            */}
-            <img
-              src={work.imageUrl}
-              alt={getTitle(work)}
-              className="h-full min-w-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale contrast-[1.1] group-hover:grayscale-0 group-hover:contrast-100"
-              loading="lazy"
-              decoding="async"
-            />
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-white/0 group-hover:bg-white/10 transition-colors duration-300" />
-
-            {/* Title on Hover */}
-            <div className="absolute bottom-0 left-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-full bg-gradient-to-t from-black/50 to-transparent">
-              <p className="text-white font-bold text-xs uppercase tracking-widest truncate">{getTitle(work)}</p>
-            </div>
-          </Link>
-        ))}
-        {/* Spacers to prevent last row from over-stretching */}
-        <div className="grow-[10] h-48 md:h-64 lg:h-80"></div>
+    <div className="grid-view-container">
+      {/* Version Toggle */}
+      <div style={{
+        display: 'flex',
+        justifyContent: 'flex-end',
+        marginBottom: '1rem',
+        gap: '0.5rem'
+      }}>
+        <button
+          onClick={() => setUseV2(false)}
+          style={{
+            padding: '0.25rem 0.75rem',
+            fontSize: '0.75rem',
+            fontWeight: useV2 ? 400 : 700,
+            border: '1px solid black',
+            background: useV2 ? 'transparent' : 'black',
+            color: useV2 ? 'black' : 'white',
+            cursor: 'pointer',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}
+        >
+          V1
+        </button>
+        <button
+          onClick={() => setUseV2(true)}
+          style={{
+            padding: '0.25rem 0.75rem',
+            fontSize: '0.75rem',
+            fontWeight: useV2 ? 700 : 400,
+            border: '1px solid black',
+            background: useV2 ? 'black' : 'transparent',
+            color: useV2 ? 'white' : 'black',
+            cursor: 'pointer',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}
+        >
+          V2
+        </button>
       </div>
+
+      {/* V1: Fixed aspect ratio grid */}
+      {!useV2 && (
+        <div className="grid-gallery">
+          {filteredWorks.map((work) => (
+            <Link
+              to={`/work/${work.id}`}
+              key={work.id}
+              className="grid-item"
+            >
+              <img
+                src={work.imageUrl}
+                alt={getTitle(work)}
+                className="grid-item-image"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="grid-item-overlay" />
+              <div className="grid-item-title">
+                <p>{getTitle(work)}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
+
+      {/* V2: Natural aspect ratio grid - 保持图片原始比例 */}
+      {useV2 && (
+        <div className="grid-gallery-v2">
+          {filteredWorks.map((work) => (
+            <Link
+              to={`/work/${work.id}`}
+              key={work.id}
+              className="grid-item-v2"
+            >
+              <img
+                src={work.imageUrl}
+                alt={getTitle(work)}
+                className="grid-item-v2-image"
+                loading="lazy"
+                decoding="async"
+              />
+              <div className="grid-item-v2-overlay" />
+              <div className="grid-item-v2-title">
+                <p>{getTitle(work)}</p>
+              </div>
+            </Link>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
+
 
 const WorkDetail = ({ language }: { language: Language }) => {
   const { id } = useParams();
@@ -1076,7 +1067,7 @@ const WorkDetail = ({ language }: { language: Language }) => {
   const currentIndex = WORKS.findIndex(w => w.id === id);
   const work = WORKS[currentIndex];
 
-  if (!work) return <div className="p-8 text-center uppercase tracking-widest">{t.workNotFound}</div>;
+  if (!work) return <div style={{ padding: '2rem', textAlign: 'center', textTransform: 'uppercase', letterSpacing: '0.1em' }}>{t.workNotFound}</div>;
 
   // Get all images for this work
   const allImages = getWorkImages(work);
@@ -1171,47 +1162,25 @@ const WorkDetail = ({ language }: { language: Language }) => {
   }).slice(0, 4);
 
   return (
-    <article
-      className="min-h-screen bg-white animate-in fade-in duration-500"
-      style={{
-        textAlign: 'left',
-        display: 'block',
-        width: '100%',
-        margin: 0,
-        padding: 0
-      }}
-    >
+    <article className="work-detail">
       {/* Main Content Container - All left aligned */}
-      <div
-        className="w-full px-4 md:px-8 lg:px-12 py-8 md:py-12"
-        style={{
-          textAlign: 'left',
-          display: 'block',
-          width: '100%',
-          maxWidth: 'none',
-          margin: 0,
-          marginLeft: 0,
-          marginRight: 0,
-          paddingLeft: '1rem',
-          paddingRight: '1rem'
-        }}
-      >
+      <div className="work-detail-content">
 
         {/* Title Section - Left aligned */}
-        <h1 className="text-2xl md:text-3xl lg:text-4xl font-black mb-4 text-black leading-tight tracking-tight text-left" style={{ textAlign: 'left' }}>
+        <h1 className="work-detail-title">
           {getTitle()}
         </h1>
 
         {/* Year - Left aligned */}
-        <section className="mb-8 md:mb-12 text-left" style={{ textAlign: 'left' }}>
-          <p className="text-base md:text-lg text-black">{work.year}</p>
+        <section className="work-detail-section">
+          <p className="work-detail-year">{work.year}</p>
         </section>
 
         {/* Share Button */}
-        <div className="mb-4 flex items-center gap-4">
+        <div style={{ marginBottom: '1rem' }}>
           <button
             onClick={handleShare}
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium uppercase tracking-wider border border-black hover:bg-black hover:text-white transition-colors"
+            className="share-btn"
             aria-label="Share"
           >
             {shareCopied ? (
@@ -1553,7 +1522,6 @@ const AppContent = () => {
   const [language, setLanguage] = useState<Language>('en'); // Default to English
   const [selectedSeries, setSelectedSeries] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
 
   // Determine category from URL
@@ -1567,20 +1535,8 @@ const AppContent = () => {
 
   const category = getCategory();
 
-  // Apply dark mode class to document
-  useEffect(() => {
-    if (isDarkMode) {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-  }, [isDarkMode]);
-
   return (
-    <div className={`min-h-screen font-sans transition-colors pb-10 ${isDarkMode
-      ? 'bg-gray-900 text-white selection:bg-white selection:text-black'
-      : 'bg-white text-black selection:bg-black selection:text-white'
-      }`}>
+    <div className="app-container">
       <Header
         viewMode={viewMode}
         setViewMode={setViewMode}
@@ -1593,8 +1549,6 @@ const AppContent = () => {
         setSelectedSeries={setSelectedSeries}
         selectedYear={selectedYear}
         setSelectedYear={setSelectedYear}
-        isDarkMode={isDarkMode}
-        setIsDarkMode={setIsDarkMode}
       />
       <Routes>
         <Route path="/" element={
