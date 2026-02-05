@@ -23,6 +23,17 @@ interface Work {
 
 type Language = 'zh' | 'en';
 
+const BASE_PATH = (import.meta as any).env.BASE_URL;
+
+const resolvePath = (path: string | undefined): string => {
+  if (!path) return '';
+  if (path.startsWith('http')) return path;
+  // Remove leading slash if BASE_PATH already ends with slash to avoid double slash
+  // But standard Vite BASE_URL usually ends with /.
+  const cleanPath = path.startsWith('/') ? path.slice(1) : path;
+  return `${BASE_PATH}${cleanPath}`;
+};
+
 // --- CONFIGURATION & DATA ---
 
 // Define colors for specific series
@@ -474,43 +485,43 @@ const getWorkImages = (work: Work): string[] => {
     const buddhaImages = ['spiral', 'stop', 'human', 'multi-faced', 'praying', 'elephant', 'warning', 'eye-wash', 'warning-buddha-2', 'cctv', 'forbidden-crossing', 'no-smoking'];
     const suffix = imageConfig.suffix || '';
     buddhaImages.forEach(img => {
-      images.push(`/images/${imageConfig.folder}/${img}${suffix}.${imageConfig.extension}`);
+      images.push(resolvePath(`/images/${imageConfig.folder}/${img}${suffix}.${imageConfig.extension}`));
     });
   } else if (imageConfig.count === 1) {
     // Single image
     const suffix = imageConfig.suffix || '';
-    images.push(`/images/${imageConfig.folder}/${imageConfig.pattern}${suffix}.${imageConfig.extension}`);
+    images.push(resolvePath(`/images/${imageConfig.folder}/${imageConfig.pattern}${suffix}.${imageConfig.extension}`));
   } else {
     // Multiple images
     // Special handling for human-flawed-machine which has different naming
     if (work.id === '6') {
       // human-flawed-machine has: main-compressed.jpg, 1-4-compressed.jpg, flaw-1/2/3-compressed.jpg
       const suffix = imageConfig.suffix || '';
-      images.push(`/images/${imageConfig.folder}/human-flawed-machine-main${suffix}.${imageConfig.extension}`);
+      images.push(resolvePath(`/images/${imageConfig.folder}/human-flawed-machine-main${suffix}.${imageConfig.extension}`));
       for (let i = 1; i <= 4; i++) {
-        images.push(`/images/${imageConfig.folder}/human-flawed-machine-${i}${suffix}.${imageConfig.extension}`);
+        images.push(resolvePath(`/images/${imageConfig.folder}/human-flawed-machine-${i}${suffix}.${imageConfig.extension}`));
       }
       for (let i = 1; i <= 3; i++) {
-        images.push(`/images/${imageConfig.folder}/human-flawed-machine-flaw-${i}${suffix}.${imageConfig.extension}`);
+        images.push(resolvePath(`/images/${imageConfig.folder}/human-flawed-machine-flaw-${i}${suffix}.${imageConfig.extension}`));
       }
     } else if (work.id === '9') {
       // Charcoal-Grilled Pork Knuckles: 1-4, plus closeup
       const suffix = imageConfig.suffix || '';
       for (let i = 1; i <= imageConfig.count; i++) {
-        images.push(`/images/${imageConfig.folder}/${imageConfig.pattern}-${i}${suffix}.${imageConfig.extension}`);
+        images.push(resolvePath(`/images/${imageConfig.folder}/${imageConfig.pattern}-${i}${suffix}.${imageConfig.extension}`));
       }
-      images.push(`/images/${imageConfig.folder}/${imageConfig.pattern}-closeup${suffix}.${imageConfig.extension}`);
+      images.push(resolvePath(`/images/${imageConfig.folder}/${imageConfig.pattern}-closeup${suffix}.${imageConfig.extension}`));
     } else {
       // Standard pattern: pattern-1, pattern-2, etc.
       const suffix = imageConfig.suffix || '';
       for (let i = 1; i <= imageConfig.count; i++) {
-        images.push(`/images/${imageConfig.folder}/${imageConfig.pattern}-${i}${suffix}.${imageConfig.extension}`);
+        images.push(resolvePath(`/images/${imageConfig.folder}/${imageConfig.pattern}-${i}${suffix}.${imageConfig.extension}`));
       }
     }
   }
 
-  // If no images found, return the base URL
-  return images.length > 0 ? images : [baseUrl];
+  // If no images found, return the base URL (resolved)
+  return images.length > 0 ? images : [resolvePath(baseUrl)];
 };
 
 // ScrollToTop component to handle scroll reset on navigation
@@ -1203,7 +1214,7 @@ const WorkDetail = ({ language }: { language: Language }) => {
             <div className="relative w-full" style={{ maxHeight: '90vh' }}>
               <video
                 ref={videoRef}
-                src={work.videoUrl}
+                src={resolvePath(work.videoUrl)}
                 controls
                 className="w-full h-auto"
                 style={{ maxHeight: '90vh', objectFit: 'contain' }}
