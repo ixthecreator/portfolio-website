@@ -1027,7 +1027,7 @@ const ImageGridView = ({ category, language, selectedSeries, selectedYear }: {
               className="grid-item"
             >
               <img
-                src={work.imageUrl}
+                src={resolvePath(work.imageUrl)}
                 alt={getTitle(work)}
                 className="grid-item-image"
                 loading="lazy"
@@ -1052,7 +1052,7 @@ const ImageGridView = ({ category, language, selectedSeries, selectedYear }: {
               className="grid-item-v2"
             >
               <img
-                src={work.imageUrl}
+                src={resolvePath(work.imageUrl)}
                 alt={getTitle(work)}
                 className="grid-item-v2-image"
                 loading="lazy"
